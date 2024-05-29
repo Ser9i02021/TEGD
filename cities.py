@@ -154,5 +154,29 @@ class City():
             "Kristiansand": "https://www.metoffice.gov.uk/weather/forecast/u4mdy3bsq#?date=2024-05-30",
             "Sandnes": "https://www.metoffice.gov.uk/weather/forecast/u4knf3k6n#?date=2024-05-30",
 
-            
+            "Zurich (Zürich)": "https://www.metoffice.gov.uk/weather/forecast/u0qjdcy3c#?date=2024-05-30",
+            "Geneva (Genève)": "https://www.metoffice.gov.uk/weather/forecast/u0hqgkr8z#?date=2024-05-30",
+            "Basel": "https://www.metoffice.gov.uk/weather/forecast/u0mqs6p94#?date=2024-05-30",
+            "Lausanne": "https://www.metoffice.gov.uk/weather/forecast/u0k8ydht3#?date=2024-05-30",
+
+            "Rome (Roma)": "https://www.metoffice.gov.uk/weather/forecast/sr2y7gxtj#?date=2024-05-30",
+            "Milan (Milano)": "https://www.metoffice.gov.uk/weather/forecast/u0nd95ezw#?date=2024-05-30",
+            "Naples (Napoli)": "https://www.metoffice.gov.uk/weather/forecast/sr60kyq6u#?date=2024-05-30",
+            "Turin (Torino)": "https://www.metoffice.gov.uk/weather/forecast/u0j3nhd38#?date=2024-05-30",
+            "Palermo": "https://www.metoffice.gov.uk/weather/forecast/sqc2zg91j#?date=2024-05-30",
+            "Genoa (Genova)": "https://www.metoffice.gov.uk/weather/forecast/spykeh0z3#?date=2024-05-30",
+            "Bologna": "https://www.metoffice.gov.uk/weather/forecast/srbj34kqj#?date=2024-05-30",
+            "Florence (Firenze)": "https://www.metoffice.gov.uk/weather/forecast/spzcp9ckv#?date=2024-05-30",
+            "Bari": "https://www.metoffice.gov.uk/weather/forecast/sr7czvsm7#?date=2024-05-30",
+            "Catania": "https://www.metoffice.gov.uk/weather/forecast/sqdtr4svm#?date=2024-05-30",
+            "Venice (Venezia)": "https://www.metoffice.gov.uk/weather/forecast/u20f805g5#?date=2024-05-30",
+            "Verona": "https://www.metoffice.gov.uk/weather/forecast/u0pdrb0c0#?date=2024-05-30",
+            "Messina": "https://www.metoffice.gov.uk/weather/forecast/sqg14n6qw#?date=2024-05-30",
+            "Trieste": "https://metoffice.gov.uk/weather/forecast/u21g9w669#?date=2024-05-30",
+            "Taranto": "https://www.metoffice.gov.uk/weather/forecast/srhq0x34f#?date=2024-05-30",
+            "Brescia": "https://www.metoffice.gov.uk/weather/forecast/u0p63umwt#?date=2024-05-30",
+            "Parma": "https://www.metoffice.gov.uk/weather/forecast/spzqgj6j4#?date=2024-05-30",
+            "Reggio Calabria": "https://www.metoffice.gov.uk/weather/forecast/sqg0u1eyz#?date=2024-05-30",
+            "Perugia": "https://www.metoffice.gov.uk/weather/forecast/sr8vhwje8#?date=2024-05-30",
+            "Ravenna": "https://www.metoffice.gov.uk/weather/forecast/srbsty7j3#?date=2024-05-30"
         }
