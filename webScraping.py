@@ -220,7 +220,7 @@ def get_data_and_wrap_it_to_JSON(from_item: int, to_item: int):
 
     print("Weather data collected and saved successfully! (%d - %d)" % (from_item, to_item))
 
-for i in range(0, 143, 2):
+for i in range(0, 167, 2):
     get_data_and_wrap_it_to_JSON(i, i + 2)
 
 driver.quit() 
