@@ -80,20 +80,44 @@ def calculate_mean_temp(row):
     min_temp = int(row['min_max.min_temp'].replace('°', ''))
     return (max_temp + min_temp) / 2
 
-for region, cities in cities_by_country.items(): 
-    # Filter the DataFrame to include only rows for the region's cities
-    df_region = df[df['city'].isin(cities_by_country[region])].copy()
+def mean_temp_for_all_regions():
+    for region, cities in cities_by_country.items(): 
+        # Filter the DataFrame to include only rows for the region's cities
+        df_region = df[df['city'].isin(cities_by_country[region])].copy()
 
-    # Apply the function to calculate the mean temperature for each row
-    df_region['mean_temp'] = df_region.apply(calculate_mean_temp, axis=1)
+        # Apply the function to calculate the UV level for each row
+        df_region['mean_temp'] = df_region.apply(calculate_mean_temp, axis=1)
 
-    # Group by city and day to get the mean temperature for each city each day
-    df_mean_temps = df_region.groupby(['city', 'day'])['mean_temp'].mean().reset_index()
+        # Group by city and day to get the mean temperature for each city each day
+        df_mean_temps = df_region.groupby(['city', 'day'])['mean_temp'].mean().reset_index()
 
-    # Group by day to get the overall mean temperature across all cities for each day
-    df_overall_mean_temps = df_mean_temps.groupby('day')['mean_temp'].mean().reset_index()
+        # Group by day to get the overall mean temperature across all cities for each day
+        df_overall_mean_temps = df_mean_temps.groupby('day')['mean_temp'].mean().reset_index()
 
-    # Calculate the mean temperature for the given period
-    mean_temp = df_overall_mean_temps['mean_temp'].mean()
+        # Calculate the mean temperature for the given period
+        mean_temp = df_overall_mean_temps['mean_temp'].mean()
 
-    print("Mean temperature for %s from 2024/05/31 to 2024/06/18: %f" % (region, mean_temp))
+        print("Mean temperature for %s from 2024/05/31 to 2024/06/18: %f" % (region, mean_temp))
+
+
+
+def mean_UV_level_for_all_regions():
+    # Create an empty list to store UV values
+    all_uv_values = []
+
+    for region, cities in cities_by_country.items(): 
+        # Filter the DataFrame to include only rows for the region's cities
+        df_region = df[df['city'].isin(cities_by_country[region])].copy()
+
+        # Extract the UV values for the region
+        uv_values = df_region['summary.UV_value'].astype(float)
+
+        # Calculate the mean UV value for the region
+        mean_uv = uv_values.mean()
+
+        print("Mean UV value for %s from 2024/05/31 to 2024/06/05: %f" % (region, mean_uv))
+
+
+
+mean_temp_for_all_regions()
+mean_UV_level_for_all_regions() 
