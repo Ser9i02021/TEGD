@@ -2,9 +2,22 @@ import json
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Load the JSON file with the correct encoding
+# Concatenate the contents of all JSON files to collect weather data from all the days avalilable in the research
+
+# Load the first JSON file
 with open('w_data_2.json', 'r', encoding='utf-8') as file:
-    data = json.load(file)
+    data1 = json.load(file)
+
+# Load the second JSON file
+with open('w_data_3.json', 'r', encoding='utf-8') as file:
+    data2 = json.load(file)
+
+# Load the third JSON file
+with open('w_data_6.json', 'r', encoding='utf-8') as file:
+    data3 = json.load(file)
+
+# Combine the three lists
+data = data1 + data2 + data3
 
 # Convert the list to a pandas DataFrame
 df = pd.json_normalize(data)
@@ -83,4 +96,4 @@ for region, cities in cities_by_country.items():
     # Calculate the mean temperature for the given period
     mean_temp = df_overall_mean_temps['mean_temp'].mean()
 
-    print("Mean temperature for %s from 2024/05/31 to 2024/06/05: %f" % (region, mean_temp))
+    print("Mean temperature for %s from 2024/05/31 to 2024/06/18: %f" % (region, mean_temp))
