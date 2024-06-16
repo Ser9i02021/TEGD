@@ -1,6 +1,7 @@
 import json
 import pandas as pd
 import matplotlib.pyplot as plt
+import math
 
 # Concatenate the contents of all JSON files to collect weather data from all the days avalilable in the research
 
@@ -80,12 +81,14 @@ def calculate_mean_temp(row):
     min_temp = int(row['min_max.min_temp'].replace('°', ''))
     return (max_temp + min_temp) / 2
 
+
+
 def mean_temp_for_all_regions():
     for region, cities in cities_by_country.items(): 
         # Filter the DataFrame to include only rows for the region's cities
         df_region = df[df['city'].isin(cities_by_country[region])].copy()
 
-        # Apply the function to calculate the UV level for each row
+        # Apply the function to calculate the mean temperature for each row
         df_region['mean_temp'] = df_region.apply(calculate_mean_temp, axis=1)
 
         # Group by city and day to get the mean temperature for each city each day
@@ -115,9 +118,39 @@ def mean_UV_level_for_all_regions():
         # Calculate the mean UV value for the region
         mean_uv = uv_values.mean()
 
-        print("Mean UV value for %s from 2024/05/31 to 2024/06/05: %f" % (region, mean_uv))
+        print("Mean UV value for %s from 2024/05/31 to 2024/06/18: %f" % (region, mean_uv))
 
+
+
+# Function to extract the chance of rain for each hour
+def extract_chance_of_rain(row):
+    chances = []
+    for time in range(24):  # Assuming data is recorded for each hour
+        col_name = f'all_temps_and_chances_of_rain.{time:02d}:00.chance_of_rain'
+        if isinstance(row[col_name], str):
+            chance = int(row[col_name].replace('%', '').replace('<', '').replace('≥', ''))
+            chances.append(float(chance))
+    return chances
+
+
+def mean_chance_of_rain_for_all_regions():
+    for region, cities in cities_by_country.items():
+        # Filter the DataFrame to include only rows for the region's cities
+        df_region = df[df['city'].isin(cities)].copy()
+
+        # Extract the chances of rain for the region
+        all_chances_of_rain = []
+        for index, row in df_region.iterrows():
+            all_chances_of_rain.extend(extract_chance_of_rain(row)) 
+
+        # Calculate the mean chance of rain for the region
+        if all_chances_of_rain:
+            mean_chance_of_rain = sum(all_chances_of_rain) / len(all_chances_of_rain)
+            print("Mean chance of rain for %s from 2024/05/31 to 2024/06/05: %f" % (region, mean_chance_of_rain))
+        else:
+            print("No data for chance of rain for %s from 2024/05/31 to 2024/06/18" % (region))
 
 
 mean_temp_for_all_regions()
-mean_UV_level_for_all_regions() 
+mean_UV_level_for_all_regions()
+mean_chance_of_rain_for_all_regions()
