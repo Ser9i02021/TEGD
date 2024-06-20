@@ -86,7 +86,7 @@ def extract_pollen_data():
             pollen_data[region_name] = region_data
 
         # Write the data to a JSON file
-        with open('w_data_pollen_2.json', 'w') as json_file:
+        with open('w_data_pollen_5.json', 'w') as json_file:
             json.dump(pollen_data, json_file, indent=4)
 
         print("Data has been successfully saved to w_data_pollen.json")
