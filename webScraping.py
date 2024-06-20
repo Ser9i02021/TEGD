@@ -181,8 +181,8 @@ class WeatherConditions:
 def get_data_and_wrap_it_to_JSON(from_item: int, to_item: int):
     data = []
 
-    if os.path.exists("w_data.json"):
-        with open("w_data.json", "r", encoding="utf-8") as f:
+    if os.path.exists("w_data_6.json"):
+        with open("w_data_6.json", "r", encoding="utf-8") as f:
             data = json.load(f)
 
     for city, url in dict(list(new_cities.items())[from_item:to_item]).items():
@@ -215,7 +215,7 @@ def get_data_and_wrap_it_to_JSON(from_item: int, to_item: int):
                 "all_temps_and_chances_of_rain": all_temps_and_chances_of_rain
             })
 
-    with open("w_data.json", "w", encoding="utf-8") as f:
+    with open("w_data_6.json", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
     print("Weather data collected and saved successfully! (%d - %d)" % (from_item, to_item))
